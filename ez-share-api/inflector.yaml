@@ -1,0 +1,15 @@
+controllerPackage: io.swagger.sample.controllers
+modelPackage: io.swagger.sample.models
+swaggerUrl: ./src/main/swagger/swagger.yaml
+
+# add any model mappings you like if you have existing models to use
+modelMappings:
+  Directory: live.himanshuchoudhary.model.Directory
+  File: live.himanshuchoudhary.model.File
+
+entityProcessors:
+  - json
+  - xml
+
+# set the environment to development | staging | production
+environment: development

@@ -1,0 +1,175 @@
+swagger: "2.0"
+info:
+  description: "An application to quickly share your files without any authentication by just choosing a directory name of your own."
+  version: "1.0.0"
+  title: "ez-share-api"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "su@himanshuchoudhary.live"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "himanshuchoudhary.live"
+basePath: "/v1/api"
+tags:
+- name: "file"
+  description: "Everything about your files"
+- name: "directory"
+  description: "Things about your directory"
+schemes:
+- "http"
+paths:
+  /file/info/{id}:
+    get:
+      tags:
+      - "file"
+      summary: "Get info about the file using the identifier"
+      description: ""
+      operationId: "getFileInfo"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        description: "The identifier of the file"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/File"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "File not found"
+        405:
+          description: "Invalid input"
+  /file/download/{id}:
+    get:
+      tags:
+      - "file"
+      summary: "Download the file using the identifier"
+      description: ""
+      operationId: "downloadFile"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/*"
+      parameters:
+      - in: "path"
+        name: "id"
+        description: "The identifier of the file"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/File"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "File not found"
+        405:
+          description: "Invalid input"
+  /file/upload:
+    post:
+      tags:
+      - "file"
+      summary: "Upload a new file"
+      operationId: "uploadFile"
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "formData"
+          name: "file"
+          type: "file"
+          description: "File to upload"
+        - in: "formData"
+          name: "directory"
+          type: "string"
+          default: "public"
+          description: "Directory to upload file to"
+      responses:
+        200:
+          description: "File uploaded successfully"
+          schema:
+            $ref: "#/definitions/File"
+        400:
+          description: "Error in uploading file"
+        405:
+          description: "Invalid input"
+  /directory/info:
+    get:
+      tags:
+      - "directory"
+      summary: "Get info about the directory using the name"
+      description: ""
+      operationId: "getDirectoryInfo"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "name"
+        description: "Name of the directory"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Directory"
+        400:
+          description: "Invalid name supplied"
+        404:
+          description: "Directory not found"
+        405:
+          description: "Invalid input"
+definitions:
+  File:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "uuid"
+      name:
+        type: "string"
+      createdOn:
+        type: "string"
+        format: "date-time"
+      size:
+        type: "integer"
+        format: "int32"
+        description: "Size in KB"
+  Directory:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      createdOn:
+        type: "string"
+        format: "date-time"
+      lastModified:
+        type: "string"
+        format: "date-time"
+      files:
+        type: "array"
+        items:
+          $ref: "#/definitions/File"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
