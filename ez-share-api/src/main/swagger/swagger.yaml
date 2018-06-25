@@ -47,6 +47,8 @@ paths:
           description: "File not found"
         405:
           description: "Invalid input"
+        500:
+          description: "Internal server error"
   /file/download/{id}:
     get:
       tags:
@@ -75,6 +77,8 @@ paths:
           description: "File not found"
         405:
           description: "Invalid input"
+        500:
+          description: "Internal server error"
   /file/upload:
     post:
       tags:
@@ -104,6 +108,8 @@ paths:
           description: "Error in uploading file"
         405:
           description: "Invalid input"
+        500:
+          description: "Internal server error"
   /directory/info:
     get:
       tags:
@@ -132,6 +138,8 @@ paths:
           description: "Directory not found"
         405:
           description: "Invalid input"
+        500:
+          description: "Internal server error"
 definitions:
   File:
     type: "object"

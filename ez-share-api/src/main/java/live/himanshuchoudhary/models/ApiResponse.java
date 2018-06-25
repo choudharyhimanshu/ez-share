@@ -1,13 +1,10 @@
-package package live.himanshuchoudhary.model;
+package live.himanshuchoudhary.models;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2018-06-24T08:20:58.683Z")
-public class ModelApiResponse   {
+public class ApiResponse   {
   @JsonProperty("code")
   private Integer code = null;
 
@@ -19,7 +16,7 @@ public class ModelApiResponse   {
 
   /**
    **/
-  public ModelApiResponse code(Integer code) {
+  public ApiResponse code(Integer code) {
     this.code = code;
     return this;
   }
@@ -36,7 +33,7 @@ public class ModelApiResponse   {
 
   /**
    **/
-  public ModelApiResponse type(String type) {
+  public ApiResponse type(String type) {
     this.type = type;
     return this;
   }
@@ -53,7 +50,7 @@ public class ModelApiResponse   {
 
   /**
    **/
-  public ModelApiResponse message(String message) {
+  public ApiResponse message(String message) {
     this.message = message;
     return this;
   }
@@ -77,7 +74,7 @@ public class ModelApiResponse   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModelApiResponse _apiResponse = (ModelApiResponse) o;
+    ApiResponse _apiResponse = (ApiResponse) o;
     return Objects.equals(code, _apiResponse.code) &&
         Objects.equals(type, _apiResponse.type) &&
         Objects.equals(message, _apiResponse.message);

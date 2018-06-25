@@ -5,9 +5,7 @@ import io.swagger.inflector.models.ResponseContext;
 import javax.ws.rs.core.Response.Status;
 
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
-import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2018-06-24T08:20:58.683Z")
 public class FileController  {
 
     public ResponseContext downloadFile(RequestContext request , String id) {

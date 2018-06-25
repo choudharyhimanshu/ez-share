@@ -1,11 +1,11 @@
-controllerPackage: io.swagger.sample.controllers
-modelPackage: io.swagger.sample.models
+controllerPackage: live.himanshuchoudhary.controllers
+modelPackage: live.himanshuchoudhary.models
 swaggerUrl: ./src/main/swagger/swagger.yaml
 
 # add any model mappings you like if you have existing models to use
 modelMappings:
-  Directory: live.himanshuchoudhary.model.Directory
-  File: live.himanshuchoudhary.model.File
+  Directory: live.himanshuchoudhary.models.Directory
+  File: live.himanshuchoudhary.models.File
 
 entityProcessors:
   - json
