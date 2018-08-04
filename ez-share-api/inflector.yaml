@@ -1,11 +1,11 @@
-controllerPackage: live.himanshuchoudhary.controllers
-modelPackage: live.himanshuchoudhary.models
+controllerPackage: live.himanshuchoudhary.ezshare.controllers
+modelPackage: live.himanshuchoudhary.ezshare.models
 swaggerUrl: ./src/main/swagger/swagger.yaml
 
 # add any model mappings you like if you have existing models to use
 modelMappings:
-  Directory: live.himanshuchoudhary.models.Directory
-  File: live.himanshuchoudhary.models.File
+  Directory: live.himanshuchoudhary.ezshare.models.Directory
+  File: live.himanshuchoudhary.ezshare.models.FileModel
 
 entityProcessors:
   - json

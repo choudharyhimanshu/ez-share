@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://URL</property>
+        <property name="hibernate.connection.username">USER</property>
+        <property name="hibernate.connection.password">PASSWORD</property>
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
+
+        <!-- Print executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+
+        <!-- Annotated entity classes -->
+        <mapping class="live.himanshuchoudhary.ezshare.models.FileModel"/>
+
+    </session-factory>
+</hibernate-configuration>

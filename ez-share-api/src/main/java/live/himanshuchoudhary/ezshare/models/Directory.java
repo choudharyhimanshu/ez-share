@@ -1,9 +1,12 @@
-package live.himanshuchoudhary.models;
+package live.himanshuchoudhary.ezshare.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import live.himanshuchoudhary.ezshare.util.LocalDateDeserializer;
+import live.himanshuchoudhary.ezshare.util.LocalDateSerializer;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Directory {
@@ -11,16 +14,18 @@ public class Directory {
     private String name = null;
 
     @JsonProperty("createdOn")
-    private Date createdOn = null;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDateTime createdOn = null;
 
     @JsonProperty("lastModified")
-    private Date lastModified = null;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDateTime lastModified = null;
 
     @JsonProperty("files")
-    private List<File> files = null;
+    private List<FileModel> files = null;
 
-    @ApiModelProperty(value = "")
-    @JsonProperty("name")
     public String getName() {
         return name;
     }
@@ -29,34 +34,27 @@ public class Directory {
         this.name = name;
     }
 
-    @ApiModelProperty(value = "")
-    @JsonProperty("createdOn")
-    public Date getCreatedOn() {
+    public LocalDateTime getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(Date createdOn) {
+    public void setCreatedOn(LocalDateTime createdOn) {
         this.createdOn = createdOn;
     }
 
-    @ApiModelProperty(value = "")
-    @JsonProperty("lastModified")
-    public Date getLastModified() {
+    public LocalDateTime getLastModified() {
         return lastModified;
     }
 
-    public void setLastModified(Date lastModified) {
+    public void setLastModified(LocalDateTime lastModified) {
         this.lastModified = lastModified;
     }
 
-
-    @ApiModelProperty(value = "")
-    @JsonProperty("files")
-    public List<File> getFiles() {
+    public List<FileModel> getFiles() {
         return files;
     }
 
-    public void setFiles(List<File> files) {
+    public void setFiles(List<FileModel> files) {
         this.files = files;
     }
 
